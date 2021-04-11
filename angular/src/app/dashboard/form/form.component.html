@@ -1,0 +1,24 @@
+<form [formGroup]= "formInfo" (ngSubmit) = "createCard($event)">
+    <div class="mb-3 container">
+      <label for="exampleInputEmail1" class="form-label">Tên</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+      formControlName = "name">
+    </div>
+
+    <div class="mb-3 container">
+      <label for="exampleInputPassword1" class="form-label">SĐT</label>
+      <input type="password" class="form-control" id="exampleInputPassword1"
+      formControlName = "phoneNumber">
+    </div>
+
+    <app-city formControlName = "city" (ngModelChange)="onCityChange()">Tỉnh/Thành phố</app-city>
+
+    <app-district formControlName = "district" [cityId] = "getCityId"></app-district>
+
+    <br>
+    
+    <div class="container">
+        <button type="submit" class="btn btn-primary">Quận/Huyện</button>
+    </div>
+    
+  </form>
