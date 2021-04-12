@@ -2495,6 +2495,7 @@ export interface ICreateCardDto {
 }
 
 export class GetCardDto implements IGetCardDto {
+    id: string | undefined;
     name: string | undefined;
     phoneNumber: string | undefined;
     city: string | undefined;
@@ -2511,6 +2512,7 @@ export class GetCardDto implements IGetCardDto {
 
     init(_data?: any) {
         if (_data) {
+            this.id = _data["id"];
             this.name = _data["name"];
             this.phoneNumber = _data["phoneNumber"];
             this.city = _data["city"];
@@ -2527,6 +2529,7 @@ export class GetCardDto implements IGetCardDto {
 
     toJSON(data?: any) {
         data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
         data["name"] = this.name;
         data["phoneNumber"] = this.phoneNumber;
         data["city"] = this.city;
@@ -2543,6 +2546,7 @@ export class GetCardDto implements IGetCardDto {
 }
 
 export interface IGetCardDto {
+    id: string | undefined;
     name: string | undefined;
     phoneNumber: string | undefined;
     city: string | undefined;

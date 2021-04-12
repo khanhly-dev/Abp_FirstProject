@@ -7,10 +7,10 @@ namespace FirstProject.CardInfo
     public interface ICardInfoAppService
     {
         Task<List<GetCardDto>> GetAllCardInfo();
-        void CreateCard(CreateCardDto input);
+        Task CreateCard(CreateCardDto input);
 
-        void UpdateCard(UpdateCardDto input);
+        Task UpdateCard(UpdateCardDto input);
 
-        void DeleteCard(int  cardId);
+        Task DeleteCard(int  cardId);
     }
 }

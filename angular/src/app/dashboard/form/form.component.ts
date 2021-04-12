@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { CardInfoServiceProxy, CityServiceProxy } from '@shared/service-proxies/service-proxies';
+import { CardInfoServiceProxy, CityServiceProxy, CreateCardDto } from '@shared/service-proxies/service-proxies';
 import { City } from '../view_model/cityViewModel';
-import { Card } from '../view_model/cardViewModel';
+
 
 @Component({
   selector: 'app-form',
@@ -48,19 +48,22 @@ export class FormComponent implements OnInit {
     console.log(this.getCityId)
   }
 
-  cardList : Card[] = [];
+  cardList : CreateCardDto[] = [];
 
   getAllCard() : void
   {
     this.cardService.getAllCardInfo().subscribe(x => this.cardList = x)
   }
 
-  createCard(cardInput : Card)
+  createCard(cardInput : CreateCardDto)
   {
     cardInput.name = this.formInfo.value.name;
     cardInput.phoneNumber = this.formInfo.value.phoneNumber;
     cardInput.city = this.formInfo.value.city;
     cardInput.district = this.formInfo.value.district;
     this.cardService.createCard(cardInput).subscribe(user => { this.cardList.push(cardInput) });
+    location.reload();
+    alert("them thanh cong")
   }
+
 }

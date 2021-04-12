@@ -10,6 +10,7 @@ namespace FirstProject.CardInfo.Dto
     [AutoMapTo(typeof(CardInfoEntity))]
     public class CreateCardDto
     {
+        
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public string City { get; set; }

@@ -16,7 +16,7 @@ namespace FirstProject.CardInfo
             _cardRepository = cardRepository;
         }
 
-        public void CreateCard(CreateCardDto input)
+        public async Task CreateCard(CreateCardDto input)
         {
             var card = new CardInfoEntity
             {
@@ -26,14 +26,14 @@ namespace FirstProject.CardInfo
                 District = input.District
             };
 
-            _cardRepository.Insert(card);
+            await _cardRepository.InsertAsync(card);
         }
 
-        public void DeleteCard(int cardId)
+        public async Task DeleteCard(int cardId)
         {
             var card = _cardRepository.Get(cardId);
 
-            _cardRepository.Delete(card);
+            await _cardRepository.DeleteAsync(card);
         }
 
         public async Task<List<GetCardDto>> GetAllCardInfo()
@@ -45,7 +45,7 @@ namespace FirstProject.CardInfo
            );
         }
 
-        public void UpdateCard(UpdateCardDto input)
+        public async Task UpdateCard(UpdateCardDto input)
         {
             var card = _cardRepository.Get(input.Id);
 
@@ -54,7 +54,7 @@ namespace FirstProject.CardInfo
             card.City = input.City;
             card.District = input.District;
 
-            _cardRepository.Update(card);
+            await _cardRepository.UpdateAsync(card);
         }
     }
 }
