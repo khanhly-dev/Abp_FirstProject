@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppRouteGuard } from '@shared/auth/auth-route-guard';
 import { CityComponent } from './city/city.component';
 import { DistrictComponent } from './district/district.component';
 import { FormViewComponent } from './form-view/form-view.component';
@@ -16,11 +17,15 @@ const routes: Routes = [
   },
   {
     path: 'form',
-    component: FormComponent
+    component: FormComponent,
+    data : {permission : 'Pages.Dashboard.CardCreate'},
+    canActivate: [AppRouteGuard]
   },
   {
     path: 'form-view',
-    component: FormViewComponent
+    component: FormViewComponent,
+    data : {permission : 'Pages.Dashboard.CardView'},
+    canActivate: [AppRouteGuard]
   },
 ];
 

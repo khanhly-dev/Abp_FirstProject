@@ -30,7 +30,7 @@
             <td>
                 <button (click)="editData()"  href="">sửa |</button>
                 <button  (click)="saveCardBeforeUpdate(item)" href="" [hidden] = "readonly">OK |</button>
-                <button (click)="deleteCard(item.id)" > xóa</button>
+                <a (click)="deleteCard(item.id)" routerLink="/form-view"> xóa</a>
             </td>
         </tr>
     </tbody>

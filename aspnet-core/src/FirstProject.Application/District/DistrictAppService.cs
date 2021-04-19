@@ -1,4 +1,5 @@
 ﻿using Abp.Domain.Repositories;
+using FirstProject.City;
 using FirstProject.District.Dto;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -11,10 +12,14 @@ namespace FirstProject.District
     {
         private readonly IRepository<DistrictEntity> _districtRepository;
 
-        public DistrictAppService(IRepository<DistrictEntity> districtRepository)
+        private readonly IRepository<CityEntity> _cityRepository;
+
+        public DistrictAppService(IRepository<DistrictEntity> districtRepository, IRepository<CityEntity> cityRepository)
         {
             _districtRepository = districtRepository;
+            _cityRepository = cityRepository;
         }
+
         public async Task<List<GetDistrictDto>> GetAllDistrictAsync()
         {
             var districts = await _districtRepository
@@ -38,5 +43,7 @@ namespace FirstProject.District
                 ObjectMapper.Map<List<GetDistrictDto>>(districts)
                 );
         }
+
+      
     }
 }

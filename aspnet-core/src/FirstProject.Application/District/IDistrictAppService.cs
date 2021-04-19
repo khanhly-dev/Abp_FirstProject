@@ -8,6 +8,8 @@ namespace FirstProject.District
     {
         Task<List<GetDistrictDto>> GetAllDistrictAsync();
 
-       List<GetDistrictDto> GetDistrictByCityId(int cityId);
+        List<GetDistrictDto> GetDistrictByCityId(int cityId);
+
+    
     }
 }

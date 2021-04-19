@@ -24,7 +24,9 @@ import { ChangePasswordComponent } from './users/change-password/change-password
                     { path: 'update-password', component: ChangePasswordComponent, canActivate: [AppRouteGuard] },
                     {
                         path: 'dashboard',
-                        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+                        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
+                        data : {permission : 'Pages.Dashboard'},
+                        canActivate: [AppRouteGuard]
                     }
                 ]
             }

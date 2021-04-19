@@ -63,6 +63,18 @@ export class SidebarMenuComponent extends AppComponentBase implements OnInit {
                 'fas fa-users',
                 'Pages.Users'
             ),
+            new MenuItem(
+                this.l('CardView'),
+                '/app/dashboard/form-view',
+                'fas fa-users',
+                'Pages.Dashboard.CardView'
+            ),
+            new MenuItem(
+                this.l('CardCreate'),
+                '/app/dashboard/form',
+                'fas fa-users',
+                'Pages.Dashboard.CardCreate'
+            ),
             new MenuItem(this.l('MultiLevelMenu'), '', 'fas fa-circle', '', [
                 new MenuItem('ASP.NET Boilerplate', '', 'fas fa-dot-circle', '', [
                     new MenuItem(
